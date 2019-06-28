@@ -1,0 +1,20 @@
+@import "../../theme/theme.scss";
+
+.fi-button {
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &.fi-button__add {
+    padding: 10px 20px;
+    background-image: linear-gradient(
+      to right,
+      $color-secondary,
+      $color-tertiary
+    );
+    color: #fff;
+  }
+}
