@@ -17,9 +17,11 @@ function App() {
   };
 
   const handleAddBookmark = newBookmark => {
-    const bookmarksUpdate = [...bookmarks, { url: newBookmark }];
-    localStorage.setItem('fiBookmarks', JSON.stringify(bookmarksUpdate));
-    setBookmarks(bookmarksUpdate);
+    if (!bookmarks.find(bookmark => bookmark.url === newBookmark)) {
+      const bookmarksUpdate = [...bookmarks, { url: newBookmark }];
+      localStorage.setItem('fiBookmarks', JSON.stringify(bookmarksUpdate));
+      setBookmarks(bookmarksUpdate);
+    }
   };
 
   return (
