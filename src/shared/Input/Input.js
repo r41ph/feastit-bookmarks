@@ -17,11 +17,27 @@ const propTypes = {
   /**
    * Set input type
    */
-  type: PropTypes.string
+  type: PropTypes.string,
+
+  /**
+   * Set the label text
+   */
+  label: PropTypes.string,
+
+  /**
+   * Set the placeholder text
+   */
+  placeholder: PropTypes.string
 };
 
 const Input = props => {
-  const { className, onChange = () => {}, type = 'text' } = props;
+  const {
+    placeholder,
+    label = '',
+    className = '',
+    onChange = () => {},
+    type = 'text'
+  } = props;
 
   const handleChange = event => {
     onChange(event.target.value);
@@ -30,11 +46,15 @@ const Input = props => {
   const inputClasses = cx('fi-input');
 
   return (
-    <input
-      type={type}
-      className={`${className} ${inputClasses}`}
-      onChange={handleChange}
-    />
+    <>
+      {label ? <label className='fi-input__label'>label</label> : null}
+      <input
+        type={type}
+        className={`${className} ${inputClasses}`}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
+    </>
   );
 };
 
