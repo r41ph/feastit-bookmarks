@@ -10,30 +10,36 @@ const propTypes = {
   onChange: PropTypes.func,
 
   /**
-   * Set custom CSS classnames
+   * Sets custom CSS classnames
    */
   className: PropTypes.string,
 
   /**
-   * Set input type
+   * Sets input type
    */
   type: PropTypes.string,
 
   /**
-   * Set the label text
+   * Sets the label text
    */
   label: PropTypes.string,
 
   /**
-   * Set the placeholder text
+   * Sets the placeholder text
    */
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+
+  /**
+   * Sets the input value
+   */
+  value: PropTypes.string
 };
 
 const Input = props => {
   const {
     placeholder,
     label = '',
+    value,
     className = '',
     onChange = () => {},
     type = 'text'
@@ -53,6 +59,7 @@ const Input = props => {
         className={`${className} ${inputClasses}`}
         onChange={handleChange}
         placeholder={placeholder}
+        value={value}
       />
     </>
   );

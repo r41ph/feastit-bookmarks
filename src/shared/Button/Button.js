@@ -17,11 +17,21 @@ const propTypes = {
   /**
    * Set custom CSS classnames
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+
+  /**
+   * Set the disable status of the button
+   */
+  isDisable: PropTypes.bool
 };
 
 const Button = props => {
-  const { className = '', children, onClick = () => {} } = props;
+  const {
+    isDisable = false,
+    className = '',
+    children,
+    onClick = () => {}
+  } = props;
   const handleClick = e => {
     e.preventDefault();
     onClick();
@@ -30,7 +40,11 @@ const Button = props => {
   const buttonClasses = cx('fi-button');
 
   return (
-    <button className={`${buttonClasses} ${className}`} onClick={handleClick}>
+    <button
+      className={`${buttonClasses} ${className}`}
+      onClick={handleClick}
+      disabled={isDisable}
+    >
       {children}
     </button>
   );
