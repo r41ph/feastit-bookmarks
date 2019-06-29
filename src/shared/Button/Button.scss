@@ -20,4 +20,16 @@
     );
     color: #fff;
   }
+
+  &.fi-button__edit,
+  &.fi-button__delete {
+    padding: 5px 10px;
+    &:hover {
+      background-color: $color-tertiary;
+    }
+  }
+
+  &.fi-button__delete {
+    margin-left: 3px;
+  }
 }

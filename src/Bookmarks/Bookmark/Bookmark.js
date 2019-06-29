@@ -39,8 +39,15 @@ const Bookmark = props => {
       >
         {bookmark}
         <div>
-          <Button onClick={handleEdit}>Edit</Button>
-          <Button onClick={() => onHandleDelete(bookmark)}>Delete</Button>
+          <Button className='fi-button__edit' onClick={handleEdit}>
+            Edit
+          </Button>
+          <Button
+            className='fi-button__delete'
+            onClick={() => onHandleDelete(bookmark)}
+          >
+            Delete
+          </Button>
         </div>
       </a>
     </div>
