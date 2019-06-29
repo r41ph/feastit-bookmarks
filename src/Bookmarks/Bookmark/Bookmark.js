@@ -11,24 +11,23 @@ const propTypes = {
   /**
    * Specifies delete button action
    */
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+
+  /**
+   * Specifies bookmark delete action
+   */
+  handleDeleteBookmark: PropTypes.func
 };
 
 const Bookmark = props => {
-  const { onEdit = () => {}, onDelete = () => {} } = props;
+  const { onEdit = () => {}, handleDeleteBookmark } = props;
   let { bookmark = '' } = props;
   const handleEdit = () => {
     onEdit();
   };
-  const handleDelete = () => {
-    onDelete();
+  const onHandleDelete = bookmark => {
+    handleDeleteBookmark(bookmark);
   };
-
-  const prefix = 'http://';
-
-  if (!/^https?:\/\//i.test(bookmark)) {
-    bookmark = prefix + bookmark;
-  }
 
   return (
     <div className='fi-bookmark'>
@@ -41,7 +40,7 @@ const Bookmark = props => {
         {bookmark}
         <div>
           <Button onClick={handleEdit}>Edit</Button>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={() => onHandleDelete(bookmark)}>Delete</Button>
         </div>
       </a>
     </div>

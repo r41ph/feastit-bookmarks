@@ -6,9 +6,9 @@ import cx from 'classnames';
 
 const propTypes = {
   /**
-   * Specifies button click action
+   * Specifies bookmark delete action
    */
-  onClick: PropTypes.func,
+  handleDeleteBookmark: PropTypes.func,
 
   /**
    * Bookmarks list
@@ -17,14 +17,20 @@ const propTypes = {
 };
 
 const BookmarksList = props => {
-  const { bookmarks } = props;
+  const { bookmarks, handleDeleteBookmark } = props;
   const bookmarksListClasses = cx('fi-bookmarks-list');
 
   return (
     <div className={bookmarksListClasses}>
       {bookmarks
         ? bookmarks.map(bookmark => {
-            return <Bookmark key={bookmark.url} bookmark={bookmark.url} />;
+            return (
+              <Bookmark
+                key={bookmark.url}
+                bookmark={bookmark.url}
+                handleDeleteBookmark={handleDeleteBookmark}
+              />
+            );
           })
         : null}
     </div>
