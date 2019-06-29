@@ -1,3 +1,17 @@
+@import "../../theme/theme.scss";
+
 .fi-bookmark {
-  display: flex;
+  .fi-bookmark__link {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba($color-secondary, 0.5);
+    padding: 5px 10px;
+    margin-bottom: 3px;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }

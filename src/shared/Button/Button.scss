@@ -10,6 +10,9 @@
 
   &.fi-button__add {
     padding: 10px 20px;
+    width: 100%;
+    font-size: 0.8rem;
+    text-transform: uppercase;
     background-image: linear-gradient(
       to right,
       $color-secondary,
