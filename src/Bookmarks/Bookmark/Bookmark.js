@@ -16,7 +16,12 @@ const propTypes = {
 };
 
 const Bookmark = props => {
-  const { bookmark, className, onEdit = () => {}, onDelete = () => {} } = props;
+  const {
+    bookmark,
+    className = '',
+    onEdit = () => {},
+    onDelete = () => {}
+  } = props;
   const handleEdit = () => {
     onEdit();
   };
@@ -24,7 +29,7 @@ const Bookmark = props => {
     onDelete();
   };
 
-  const bookmarkClasses = cx('fi-bookmark', `${className}`);
+  const bookmarkClasses = cx('fi-bookmark-url', `${className}`);
 
   return (
     <div className='fi-bookmark'>

@@ -21,7 +21,7 @@ const propTypes = {
 };
 
 const Button = props => {
-  const { className, children, onClick = () => {} } = props;
+  const { className = '', children, onClick = () => {} } = props;
   const handleClick = e => {
     e.preventDefault();
     onClick();

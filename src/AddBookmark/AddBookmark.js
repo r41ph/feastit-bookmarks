@@ -5,25 +5,23 @@ import Input from '../shared/Input/Input';
 import handleUrlvalidation from '../actions/url-validation';
 
 const AddBookmark = () => {
-  const [isValidURL, setisValidURL] = useState(true);
+  const [isValidURL, setIsValidURL] = useState(true);
   const handleInputValidation = url => {
-    console.log('validating');
-    setisValidURL(handleUrlvalidation(url));
+    setIsValidURL(handleUrlvalidation(url));
   };
   return (
-    <>
+    <div className='fi-add-bookmark'>
       <form>
         <Input
           placeholder='Enter Bookmark URL'
           onChange={handleInputValidation}
-          clas
         />
         <Button className='fi-button__add'>Test</Button>
       </form>
       {!isValidURL ? (
         <div className='fi-input__error'>Enter a valid URL</div>
       ) : null}
-    </>
+    </div>
   );
 };
 

@@ -18,7 +18,7 @@ const propTypes = {
 
 const BookmarksList = props => {
   const { bookmarks } = props;
-  const bookmarksListClasses = cx('fi-BookmarksList');
+  const bookmarksListClasses = cx('fi-bookmarks-list');
 
   return (
     <div className={bookmarksListClasses}>
