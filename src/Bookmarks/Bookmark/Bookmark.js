@@ -2,7 +2,6 @@ import './Bookmark.scss';
 import React from 'react';
 import Button from '../../shared/Button/Button';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
 const propTypes = {
   /**
@@ -16,12 +15,8 @@ const propTypes = {
 };
 
 const Bookmark = props => {
-  const {
-    bookmark,
-    className = '',
-    onEdit = () => {},
-    onDelete = () => {}
-  } = props;
+  const { onEdit = () => {}, onDelete = () => {} } = props;
+  let { bookmark = '' } = props;
   const handleEdit = () => {
     onEdit();
   };
@@ -29,13 +24,26 @@ const Bookmark = props => {
     onDelete();
   };
 
-  const bookmarkClasses = cx('fi-bookmark-url', `${className}`);
+  const prefix = 'http://';
+
+  if (!/^https?:\/\//i.test(bookmark)) {
+    bookmark = prefix + bookmark;
+  }
 
   return (
     <div className='fi-bookmark'>
-      <div className={bookmarkClasses}>{bookmark}</div>
-      <Button onClick={handleEdit}>Edit</Button>
-      <Button onClick={handleDelete}>Delete</Button>
+      <a
+        className='fi-bookmark__link'
+        href={bookmark}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        {bookmark}
+        <div>
+          <Button onClick={handleEdit}>Edit</Button>
+          <Button onClick={handleDelete}>Delete</Button>
+        </div>
+      </a>
     </div>
   );
 };
