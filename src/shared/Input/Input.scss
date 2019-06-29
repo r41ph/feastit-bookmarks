@@ -1,5 +1,14 @@
+@import "../../theme/theme.scss";
+
 .fi-input {
   padding: 8px 10px;
+}
+
+.fi-input__error {
+  background-color: $color-error;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 0.8rem;
 }
 
 .fi-input__label {
