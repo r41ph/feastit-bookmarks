@@ -22,7 +22,8 @@ const propTypes = {
 
 const Button = props => {
   const { className, children, onClick = () => {} } = props;
-  const handleClick = () => {
+  const handleClick = e => {
+    e.preventDefault();
     onClick();
   };
 
