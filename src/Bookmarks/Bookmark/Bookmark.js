@@ -54,9 +54,10 @@ const Bookmark = props => {
   };
 
   const isError = cx(`${error ? 'fi-bookmark__edit--error' : ''}`);
+  const isEditing = cx(`${edit ? 'fi-bookmark__editing' : ''}`);
 
   return (
-    <div className='fi-bookmark'>
+    <div className={`fi-bookmark ${isEditing}`}>
       {edit ? (
         <Input
           value={inputValue}

@@ -23,16 +23,6 @@
     color: #fff;
   }
 
-  &.fi-button__edit,
-  &.fi-button__delete {
-    padding: 5px 10px;
-    background-color: #fff;
-    &:hover {
-      background-color: $color-primary;
-      color: #fff;
-    }
-  }
-
   &.fi-button__delete {
     margin-left: 3px;
   }

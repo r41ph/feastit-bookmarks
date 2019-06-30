@@ -21,4 +21,25 @@
     top: 8px;
     right: 8px;
   }
+
+  .fi-button__edit,
+  .fi-button__delete {
+    padding: 5px 10px;
+    background-color: #fff;
+    &:hover {
+      background-color: $color-primary;
+      color: #fff;
+    }
+  }
+
+  &.fi-bookmark__editing {
+    .fi-button__edit,
+    .fi-button__delete {
+      background-color: $color-primary;
+      color: #fff;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
 }
