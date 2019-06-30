@@ -16,13 +16,14 @@ const AddBookmark = props => {
 
   const { handleAddBookmark } = props;
 
-  const handleInputValidation = inputUrl => {
-    setIsValidUrl(handleUrlvalidation(inputUrl));
+  const handleChange = inputUrl => {
     setUrl(inputUrl);
   };
 
-  const onHandleAddBookmark = () => {
-    if (isValidUrl && url) {
+  const onHandleAddBookmark = inputUrl => {
+    const isValid = handleUrlvalidation(inputUrl);
+    setIsValidUrl(isValid);
+    if (isValid && url) {
       handleAddBookmark(url);
       setUrl('');
     }
@@ -31,15 +32,14 @@ const AddBookmark = props => {
   return (
     <div className='fi-add-bookmark'>
       <form>
-        <Input
-          placeholder='Enter URL'
-          onChange={handleInputValidation}
-          value={url}
-        />
+        <Input placeholder='Enter URL' onChange={handleChange} value={url} />
         {!isValidUrl ? (
           <div className='fi-input__error'>Enter a valid URL</div>
         ) : null}
-        <Button className='fi-button__add' onClick={onHandleAddBookmark}>
+        <Button
+          className='fi-button__add'
+          onClick={() => onHandleAddBookmark(url)}
+        >
           Add Bookmark
         </Button>
       </form>
