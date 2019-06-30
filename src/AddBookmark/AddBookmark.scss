@@ -1,4 +1,20 @@
+@import "../theme/theme.scss";
+
 .fi-add-bookmark {
   margin-top: 50px;
   margin-bottom: 40px;
+
+  .fi-button__add {
+    padding: 10px 20px;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      to right,
+      $color-secondary,
+      $color-tertiary
+    );
+    color: #fff;
+  }
 }
