@@ -32,12 +32,12 @@ const AddBookmark = props => {
     <div className='fi-add-bookmark'>
       <form>
         <Input
-          placeholder='Enter Bookmark URL'
+          placeholder='Enter URL'
           onChange={handleInputValidation}
           value={url}
         />
         <Button className='fi-button__add' onClick={onHandleAddBookmark}>
-          Add
+          Add Bookmark
         </Button>
       </form>
       {!isValidUrl ? (
