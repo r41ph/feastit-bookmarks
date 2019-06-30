@@ -1,5 +1,6 @@
 import './App.scss';
 import React, { useState, useEffect } from 'react';
+import Header from './Header/Header';
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './Bookmarks/BookmarksList/BookmarksList';
 
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className='feastit-bookmarks'>
+      <Header />
       <AddBookmark handleAddBookmark={handleAddBookmark} />
       <BookmarkList
         bookmarks={bookmarks}
