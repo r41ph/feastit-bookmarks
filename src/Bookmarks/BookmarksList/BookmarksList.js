@@ -9,7 +9,10 @@ const propTypes = {
    * Specifies bookmark delete action
    */
   handleDeleteBookmark: PropTypes.func,
-
+  /**
+   * Specifies bookmark edit action
+   */
+  handleEditBookmark: PropTypes.func,
   /**
    * Bookmarks list
    */
@@ -17,7 +20,7 @@ const propTypes = {
 };
 
 const BookmarksList = props => {
-  const { bookmarks, handleDeleteBookmark } = props;
+  const { bookmarks, handleDeleteBookmark, handleEditBookmark } = props;
   const bookmarksListClasses = cx('fi-bookmarks-list');
 
   return (
@@ -29,6 +32,7 @@ const BookmarksList = props => {
                 key={bookmark.url}
                 bookmark={bookmark.url}
                 handleDeleteBookmark={handleDeleteBookmark}
+                handleEditBookmark={handleEditBookmark}
               />
             );
           })

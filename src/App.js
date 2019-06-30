@@ -16,15 +16,20 @@ function App() {
     setBookmarks(bookmarks);
   };
 
-  const handleAddBookmark = newBookmark => {
+  // Make sure all URLs have the protocol included
+  const checkPrefix = url => {
     const prefix = 'http://';
 
-    if (!/^https?:\/\//i.test(newBookmark)) {
-      newBookmark = prefix + newBookmark;
+    if (!/^https?:\/\//i.test(url)) {
+      url = prefix + url;
     }
+    return url;
+  };
 
+  const handleAddBookmark = newBookmark => {
+    // Only add new bookmarks to the list
     if (!bookmarks.find(bookmark => bookmark.url === newBookmark)) {
-      const bookmarksUpdate = [...bookmarks, { url: newBookmark }];
+      const bookmarksUpdate = [...bookmarks, { url: checkPrefix(newBookmark) }];
       localStorage.setItem('fiBookmarks', JSON.stringify(bookmarksUpdate));
       setBookmarks(bookmarksUpdate);
     }
@@ -40,12 +45,23 @@ function App() {
     setBookmarks([...bookmarksUpdate]);
   };
 
+  const handleEditBookmark = (editedBookmark, updatedBookmark) => {
+    const bookmarksUpdate = bookmarks;
+    const index = bookmarksUpdate.findIndex(
+      bookmark => bookmark.url === editedBookmark
+    );
+    bookmarksUpdate.splice(index, 1, { url: checkPrefix(updatedBookmark) });
+    localStorage.setItem('fiBookmarks', JSON.stringify(bookmarksUpdate));
+    setBookmarks([...bookmarksUpdate]);
+  };
+
   return (
     <div className='feastit-bookmarks'>
       <AddBookmark handleAddBookmark={handleAddBookmark} />
       <BookmarkList
         bookmarks={bookmarks}
         handleDeleteBookmark={handleDeleteBookmark}
+        handleEditBookmark={handleEditBookmark}
       />
     </div>
   );
