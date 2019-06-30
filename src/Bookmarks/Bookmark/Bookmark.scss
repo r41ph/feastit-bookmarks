@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgba($color-secondary, 0.5);
-    padding: 5px 10px;
+    padding: 10px;
     margin-bottom: 3px;
     color: #fff;
     text-decoration: none;
@@ -18,7 +18,7 @@
 
   .fi-bookmark__options {
     position: absolute;
-    top: 2px;
-    right: 5px;
+    top: 8px;
+    right: 8px;
   }
 }

@@ -2,6 +2,7 @@
 
 .fi-button {
   border: none;
+  border-radius: 3px;
 
   &:hover {
     cursor: pointer;
@@ -24,8 +25,10 @@
   &.fi-button__edit,
   &.fi-button__delete {
     padding: 5px 10px;
+    background-color: #fff;
     &:hover {
-      background-color: $color-tertiary;
+      background-color: $color-primary;
+      color: #fff;
     }
   }
 
