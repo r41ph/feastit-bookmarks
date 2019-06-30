@@ -63,6 +63,7 @@ const Bookmark = props => {
           value={inputValue}
           onChange={handleChange}
           className={`fi-bookmark__edit ${isError}`}
+          type='url'
         />
       ) : (
         <a

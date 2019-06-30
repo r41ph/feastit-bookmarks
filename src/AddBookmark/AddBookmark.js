@@ -32,7 +32,12 @@ const AddBookmark = props => {
   return (
     <div className='fi-add-bookmark'>
       <form>
-        <Input placeholder='Enter URL' onChange={handleChange} value={url} />
+        <Input
+          placeholder='Enter URL'
+          onChange={handleChange}
+          value={url}
+          type='url'
+        />
         {!isValidUrl ? (
           <div className='fi-input__error'>Enter a valid URL</div>
         ) : null}
