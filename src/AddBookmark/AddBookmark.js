@@ -36,13 +36,13 @@ const AddBookmark = props => {
           onChange={handleInputValidation}
           value={url}
         />
+        {!isValidUrl ? (
+          <div className='fi-input__error'>Enter a valid URL</div>
+        ) : null}
         <Button className='fi-button__add' onClick={onHandleAddBookmark}>
           Add Bookmark
         </Button>
       </form>
-      {!isValidUrl ? (
-        <div className='fi-input__error'>Enter a valid URL</div>
-      ) : null}
     </div>
   );
 };
